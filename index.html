@@ -11,8 +11,15 @@
 
   <header class="header">
     <div class="header-container-logo">
-      <img src="header-container-logo__img" alt="Sneakers">
+      <div class="container-logo">
+        <img class="container-logo__img" src="src/assets/images/logo.svg" alt="Sneakers">
+      </div>
+      
+      <div id="toggle-menu" class="toggle-menu">
+        <img src="src/assets/icon/icon-menu.svg" alt="Button to display the navigation bar">
+      </div>
     </div>
+
     <nav class="header-container-navbar">
       <ul class="navbar-menu">
         <li class="navbar-menu__item">
@@ -32,13 +39,20 @@
         </li>
       </ul>
     </nav>
+
+    <div class="user-menu">
+      <img class="user-menu__cart" src="/src/assets/icon/icon-cart.svg" alt="User cart">
+      <div class="user-menu__avatar">
+        <img class="user-menu__avatar-img" src="/src/assets/images/image-avatar.png" alt="">
+      </div>
+    </div>
   </header>
 
   <main>
     <section class="main-container-images">
-      <div class="big-container">
+      <!-- <div class="big-container">
         <img class="big-container__img" src="src/assets/images/image-product-1.jpg" alt="Fall Limited Sneakers">
-      </div>
+      </div> -->
       <div class="small-container">
         <div class="small-container-image">
           <img class="small-container-image__img" src="" alt="">
@@ -82,5 +96,6 @@
       </div>
     </section>
   </main>
+  <script src="src/js/index.js"></script>
 </body>
 </html>
