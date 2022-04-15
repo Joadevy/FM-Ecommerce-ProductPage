@@ -6,9 +6,7 @@ const navbarMenuElement = document.getElementById('navbar-menu');
 
 toggleMenuElement.addEventListener('click', () => {
     navbarMenuElement.classList.toggle('navbar-menu--show');
-    if(navbarMenuElement.classList.contains('navbar-menu--show')){
-        toggleMenuElement.firstElementChild.src = 'src/assets/icon/icon-close.svg';
-    } else {
-        toggleMenuElement.firstElementChild.src = 'src/assets/icon/icon-menu.svg';
-    }
+    navbarMenuElement.classList.contains('navbar-menu--show') 
+    ? toggleMenuElement.firstElementChild.src = 'src/assets/icon/icon-close.svg'
+    : toggleMenuElement.firstElementChild.src = 'src/assets/icon/icon-menu.svg';
 })
