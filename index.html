@@ -10,18 +10,19 @@
 <body>
 
   <header class="header">
+
     <div class="header-container-logo">
       <div class="container-logo">
         <img class="container-logo__img" src="src/assets/images/logo.svg" alt="Sneakers">
       </div>
       
       <div id="toggle-menu" class="toggle-menu">
-        <img src="src/assets/icon/icon-menu.svg" alt="Button to display the navigation bar">
+        <img class="toggle-img" src="src/assets/icon/icon-menu.svg" alt="Button to display the navigation bar">
       </div>
     </div>
 
     <nav class="header-container-navbar">
-      <ul class="navbar-menu">
+      <ul id="navbar-menu" class="navbar-menu">
         <li class="navbar-menu__item">
           <a class="navbar-menu__link" href="#">Collections</a>
         </li>
@@ -41,7 +42,9 @@
     </nav>
 
     <div class="user-menu">
-      <img class="user-menu__cart" src="/src/assets/icon/icon-cart.svg" alt="User cart">
+      <div class="user-menu__cart">
+        <img class="user-menu__cart-img" src="/src/assets/icon/icon-cart.svg" alt="User cart">
+      </div>
       <div class="user-menu__avatar">
         <img class="user-menu__avatar-img" src="/src/assets/images/image-avatar.png" alt="">
       </div>

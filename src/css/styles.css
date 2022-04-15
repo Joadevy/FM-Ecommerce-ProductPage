@@ -1,4 +1,10 @@
+/* --------------- Fonts -------------- */
 @import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap");
+html {
+  font-family: "Kumbh Sans", Arial, Helvetica, sans-serif;
+}
+
+/* --------------- Colors --------------- */
 :root {
   --primary-orange: hsl(26, 100%, 55%);
   --primary-pale-orange: hsl(25, 100%, 94%);
@@ -360,17 +366,14 @@ template {
   display: none;
 }
 
-html {
-  font-family: "Kumbh Sans", Arial, Helvetica, sans-serif;
-}
-
-.navbar-menu__link {
-  font-weight: 700;
+body {
+  background-color: var(--white);
 }
 
 /* Black (with 75% opacity for lightbox background): hsl(0, 0%, 0%) */
 .header {
   display: flex;
+  justify-content: space-between;
   position: fixed;
   height: 75px;
   width: 100%;
@@ -386,6 +389,8 @@ html {
 }
 .header .header-container-logo .toggle-menu {
   cursor: pointer;
+  position: relative;
+  z-index: 20;
   margin: 1rem;
 }
 @media screen and (min-width: 768px) {
@@ -397,25 +402,53 @@ html {
   display: flex;
 }
 .header .header-container-navbar .navbar-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
   list-style: none;
   display: flex;
   flex-direction: column;
+  transition: transform 0.3s;
+  background-color: var(--white);
+  transform: translateX(-500%);
 }
 @media screen and (min-width: 768px) {
   .header .header-container-navbar .navbar-menu {
     flex-direction: row;
+    transform: translateX(0%);
+    position: relative;
+    z-index: 0;
   }
 }
 .header .header-container-navbar .navbar-menu .navbar-menu__item {
-  padding: 0.75rem;
+  padding: 0.65rem;
 }
 .header .header-container-navbar .navbar-menu .navbar-menu__item .navbar-menu__link {
   color: var(--dark-grayish-blue);
   text-decoration: none;
+  font-weight: 700;
 }
-
-body {
-  background-color: var(--white);
+.header .header-container-navbar .navbar-menu--show {
+  transform: translateX(0%);
+  box-shadow: 1px 1px 5px;
+  height: 100vh;
+  width: 40%;
+}
+.header .header-container-navbar .navbar-menu--show .navbar-menu__item:first-child {
+  margin-top: 5rem;
+}
+.header .user-menu {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  justify-content: center;
+}
+.header .user-menu .user-menu__avatar {
+  width: 30%;
+}
+.header .user-menu .user-menu__avatar .user-menu__avatar-img {
+  max-width: 100%;
 }
 
 /*# sourceMappingURL=styles.css.map */
