@@ -1,0 +1,87 @@
+/* Black (with 75% opacity for lightbox background): hsl(0, 0%, 0%) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    position: fixed;
+    height: 75px;
+    width: 100%;
+    background-color: var(--white);
+    border: 1px solid red;
+
+    .header-container-logo{
+        padding: .5rem;
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+
+        .toggle-menu {
+            cursor: pointer;
+            position: relative;
+            z-index: 20;
+            margin: 1rem;
+            @media screen and (min-width: 768px) {
+                display: none;     
+            }  
+        }
+    }
+
+    .header-container-navbar {
+        display: flex;
+
+        .navbar-menu{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 10;
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            transition: transform .3s;
+            background-color: var(--white);
+            transform: translateX(-500%);
+        
+        @media screen and (min-width: 768px) {
+                flex-direction: row;   
+                transform: translateX(0%);
+                position: relative;   
+                z-index: 0;  
+        } 
+            .navbar-menu__item {
+            padding: .65rem;
+
+                .navbar-menu__link{
+                    color: var(--dark-grayish-blue);
+                    text-decoration: none;
+                    font-weight: 700;
+                }
+            }
+        }
+
+        .navbar-menu--show{
+            transform: translateX(0%);
+            box-shadow: 1px 1px 5px;
+            height: 100vh;
+            width: 40%;
+        
+            .navbar-menu__item:first-child{
+                margin-top: 5rem;
+            }
+        }
+    }
+
+    .user-menu {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        justify-content: center;
+
+        .user-menu__avatar{
+            width: 30%;
+
+            .user-menu__avatar-img{
+                max-width: 100%;
+            }
+        }
+    }
+}
