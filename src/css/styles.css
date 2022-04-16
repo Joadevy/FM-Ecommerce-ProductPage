@@ -500,4 +500,52 @@ main {
   display: none;
 }
 
+.main-container-info {
+  padding: 1rem;
+}
+.main-container-info .info__container-text {
+  margin-bottom: 1rem;
+}
+.main-container-info .info__container-text .info__company {
+  color: var(--primary-orange);
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.05rem;
+}
+.main-container-info .info__container-text .info__product {
+  font-weight: 700;
+  color: var(--black);
+}
+.main-container-info .info__container-text .info__description {
+  color: var(--dark-grayish-blue);
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+.main-container-info .main-container-info__container-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main-container-info .main-container-info__container-price .main-container-info__container-newprice {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+.main-container-info .main-container-info__container-price .main-container-info__container-newprice .main-container-info__newprice {
+  font-size: 2rem;
+}
+.main-container-info .main-container-info__container-price .main-container-info__container-newprice .main-container-info__discount {
+  font-weight: 700;
+  color: var(--primary-orange);
+  background-color: var(--primary-pale-orange);
+  border-radius: 5px;
+  padding: 0.4rem;
+}
+.main-container-info .main-container-info__container-price .main-container-info__oldprice {
+  color: var(--grayish-blue);
+  text-decoration: line-through;
+  font-size: 1rem;
+}
+
 /*# sourceMappingURL=styles.css.map */
