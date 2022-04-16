@@ -96,5 +96,29 @@
             font-size: 1rem;
         }
     }
+
+    .main-container-info__container-options{
+        .main-container-info__options{
+            margin: 1rem 0 1rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: var(--light-grayish-blue);
+            border-radius: 10px;
+            height: 2rem;
+
+            .option__minus{
+                margin-left: 1.5rem;
+            }
+
+            .main-container-info__amount{
+                font-weight: 700;
+            }
+
+            .option__plus{
+                margin-right: 1.5rem;
+            }
+        }
+    }
 }
 
