@@ -10,7 +10,8 @@
                 width: 100%;
                 top: 40%;
                 padding: .5rem;
-                .big-container__options-container {
+
+                .big-container__options-container-previous, .big-container__options-container-next {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -18,11 +19,16 @@
                     height: 40px;
                     border-radius: 50%;
                     background-color: var(--white);
+                    
                     .big-container__options-previous{
+                        opacity: 0.2;
                         width: 25%;
                     }
                     .big-container__options-next{
                         width: 25%;
+                    }
+                    &:hover {
+                        cursor: pointer;
                     }
                 }
             }
