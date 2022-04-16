@@ -370,15 +370,23 @@ body {
   background-color: var(--white);
 }
 
+.header {
+  position: fixed;
+  height: 75px;
+  width: 100%;
+  top: 0;
+}
+
+main {
+  margin-top: 75px;
+}
+
 /* Black (with 75% opacity for lightbox background): hsl(0, 0%, 0%) */
 .header {
   display: flex;
   justify-content: space-between;
-  position: fixed;
-  height: 75px;
-  width: 100%;
   background-color: var(--white);
-  border: 1px solid red;
+  z-index: 10;
 }
 .header .header-container-logo {
   padding: 0.5rem;
@@ -422,12 +430,15 @@ body {
   }
 }
 .header .header-container-navbar .navbar-menu .navbar-menu__item {
-  padding: 0.65rem;
+  padding: 0.75rem;
 }
 .header .header-container-navbar .navbar-menu .navbar-menu__item .navbar-menu__link {
-  color: var(--dark-grayish-blue);
+  color: var(--vark-blue);
   text-decoration: none;
   font-weight: 700;
+}
+.header .header-container-navbar .navbar-menu .navbar-menu__item .navbar-menu__link:hover {
+  color: var(--dark-grayish-blue);
 }
 .header .header-container-navbar .navbar-menu--show {
   transform: translateX(0%);
@@ -441,14 +452,48 @@ body {
 .header .user-menu {
   display: flex;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
   justify-content: center;
 }
 .header .user-menu .user-menu__avatar {
-  width: 30%;
+  width: 20%;
 }
 .header .user-menu .user-menu__avatar .user-menu__avatar-img {
   max-width: 100%;
+}
+
+.main-container-images .big-container {
+  width: 100%;
+  position: relative;
+}
+.main-container-images .big-container .big-container__options {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  top: 40%;
+  padding: 0.5rem;
+}
+.main-container-images .big-container .big-container__options .big-container__options-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--white);
+}
+.main-container-images .big-container .big-container__options .big-container__options-container .big-container__options-previous {
+  width: 25%;
+}
+.main-container-images .big-container .big-container__options .big-container__options-container .big-container__options-next {
+  width: 25%;
+}
+.main-container-images .big-container .big-container__img {
+  width: 100%;
+}
+.main-container-images .small-container {
+  display: none;
 }
 
 /*# sourceMappingURL=styles.css.map */

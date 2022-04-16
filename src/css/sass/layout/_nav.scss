@@ -2,11 +2,8 @@
 .header {
     display: flex;
     justify-content: space-between;
-    position: fixed;
-    height: 75px;
-    width: 100%;
     background-color: var(--white);
-    border: 1px solid red;
+    z-index: 10;
 
     .header-container-logo{
         padding: .5rem;
@@ -48,12 +45,16 @@
                 z-index: 0;  
         } 
             .navbar-menu__item {
-            padding: .65rem;
+            padding: .75rem;
 
                 .navbar-menu__link{
-                    color: var(--dark-grayish-blue);
+                    color: var(--vark-blue);
                     text-decoration: none;
                     font-weight: 700;
+
+                    &:hover {
+                        color: var(--dark-grayish-blue);
+                    }
                 }
             }
         }
@@ -73,12 +74,11 @@
     .user-menu {
         display: flex;
         align-items: center;
-        gap: 1rem;
+        gap: 1.5rem;
         justify-content: center;
 
         .user-menu__avatar{
-            width: 30%;
-
+            width: 20%;
             .user-menu__avatar-img{
                 max-width: 100%;
             }

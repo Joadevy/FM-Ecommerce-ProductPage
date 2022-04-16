@@ -1,0 +1,38 @@
+.main-container-images {
+        .big-container {
+            width: 100%;
+            position: relative;
+
+            .big-container__options {
+                position: absolute;
+                display: flex;
+                justify-content: space-between;
+                width: 100%;
+                top: 40%;
+                padding: .5rem;
+                .big-container__options-container {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40px;
+                    height: 40px;
+                    border-radius: 50%;
+                    background-color: var(--white);
+                    .big-container__options-previous{
+                        width: 25%;
+                    }
+                    .big-container__options-next{
+                        width: 25%;
+                    }
+                }
+            }
+            .big-container__img{
+                width: 100%;
+            }
+        }
+        .small-container{
+            display: none;
+        }
+}
+
+

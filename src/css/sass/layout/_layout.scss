@@ -1,3 +1,14 @@
 body {
     background-color: var(--white);
 }
+
+.header {
+    position: fixed;
+    height: 75px;
+    width: 100%;
+    top: 0;
+}
+
+main {
+    margin-top: 75px;
+}
