@@ -504,7 +504,7 @@ main {
   padding: 1rem;
 }
 .main-container-info .info__container-text {
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 }
 .main-container-info .info__container-text .info__company {
   color: var(--primary-orange);
@@ -548,7 +548,7 @@ main {
   font-size: 1rem;
 }
 .main-container-info .main-container-info__container-options .main-container-info__options {
-  margin: 1rem 0 1rem 0;
+  margin: 1.5rem 0 1.5rem 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -564,6 +564,26 @@ main {
 }
 .main-container-info .main-container-info__container-options .main-container-info__options .option__plus {
   margin-right: 1.5rem;
+}
+.main-container-info .main-container-info__container-options .main-container-info__addtocart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 3rem;
+  background-color: var(--primary-orange);
+  border: none;
+  color: var(--white);
+  font-weight: 700;
+  border-radius: 10px;
+}
+.main-container-info .main-container-info__container-options .main-container-info__addtocart .addtocart__logo {
+  fill: var(--white);
+}
+.main-container-info .main-container-info__container-options .main-container-info__addtocart:hover {
+  cursor: pointer;
+  opacity: 0.75;
 }
 
 /*# sourceMappingURL=styles.css.map */
