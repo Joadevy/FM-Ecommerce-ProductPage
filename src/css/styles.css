@@ -554,7 +554,7 @@ main {
   align-items: center;
   background-color: var(--light-grayish-blue);
   border-radius: 10px;
-  height: 2rem;
+  height: 2.5rem;
 }
 .main-container-info .main-container-info__container-options .main-container-info__options .option__minus {
   margin-left: 1.5rem;
