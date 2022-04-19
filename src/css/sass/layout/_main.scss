@@ -11,7 +11,7 @@
                 top: 40%;
                 padding: .5rem;
 
-                .big-container__options-container-previous, .big-container__options-container-next {
+                .big-container__option-previous, .big-container__option-next {
                     display: flex;
                     align-items: center;
                     justify-content: center;
@@ -20,11 +20,11 @@
                     border-radius: 50%;
                     background-color: var(--white);
 
-                    .big-container__options-previous{
+                    .big-container__img-previous{
                         opacity: 0.2;
                         width: 25%;
                     }
-                    .big-container__options-next{
+                    .big-container__img-next{
                         width: 25%;
                     }
                     &:hover {

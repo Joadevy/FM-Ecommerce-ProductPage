@@ -5,10 +5,10 @@ const toggleMenuElement = document.getElementById('toggle-menu');
 const navbarMenuElement = document.getElementById('navbar-menu');
 
  // Buttons next/previous of the big image.
-const previousbtn = document.querySelector('.big-container__options-container-previous');
-const previousbtnlabel = document.querySelector('.big-container__options-previous');
-const nextbtn = document.querySelector('.big-container__options-container-next');
-const nextbtnlabel = document.querySelector('.big-container__options-next');
+const previousbtn = document.querySelector('.big-container__option-previous');
+const previousbtnlabel = document.querySelector('.big-container__img-previous');
+const nextbtn = document.querySelector('.big-container__option-next');
+const nextbtnlabel = document.querySelector('.big-container__img-next');
 
 const productImage = document.querySelector('.big-container__img');
 
