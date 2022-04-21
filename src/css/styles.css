@@ -556,13 +556,13 @@ main {
   border-radius: 10px;
   height: 2.5rem;
 }
-.main-container-info .main-container-info__container-options .main-container-info__options .option__minus {
+.main-container-info .main-container-info__container-options .main-container-info__options .main-container-info__option-minus {
   margin-left: 1.5rem;
 }
 .main-container-info .main-container-info__container-options .main-container-info__options .main-container-info__amount {
   font-weight: 700;
 }
-.main-container-info .main-container-info__container-options .main-container-info__options .option__plus {
+.main-container-info .main-container-info__container-options .main-container-info__options .main-container-info__option-plus {
   margin-right: 1.5rem;
 }
 .main-container-info .main-container-info__container-options .main-container-info__addtocart {
