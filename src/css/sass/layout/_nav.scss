@@ -77,6 +77,24 @@
         gap: 1.5rem;
         justify-content: center;
 
+        .user-menu__cart{
+            position: relative;
+
+            .user-menu__cart-bubble{
+                color: var(--white);
+                text-align: center;
+                font-size: .75rem;
+                font-weight: bolder;
+                width: 15px;
+                height: 15px;
+                position: absolute;
+                top: -12px;
+                right: -5px;
+                background-color: var(--primary-orange);
+                border-radius: 50%;
+            }
+        }
+
         .user-menu__avatar{
             width: 20%;
             .user-menu__avatar-img{

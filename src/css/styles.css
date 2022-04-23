@@ -455,6 +455,22 @@ main {
   gap: 1.5rem;
   justify-content: center;
 }
+.header .user-menu .user-menu__cart {
+  position: relative;
+}
+.header .user-menu .user-menu__cart .user-menu__cart-bubble {
+  color: var(--white);
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: bolder;
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: -12px;
+  right: -5px;
+  background-color: var(--primary-orange);
+  border-radius: 50%;
+}
 .header .user-menu .user-menu__avatar {
   width: 20%;
 }
@@ -540,7 +556,7 @@ main {
   color: var(--primary-orange);
   background-color: var(--primary-pale-orange);
   border-radius: 5px;
-  padding: 0.4rem;
+  padding: 0.25rem 0.5rem 0.25rem 0.5rem;
 }
 .main-container-info .main-container-info__container-price .main-container-info__oldprice {
   color: var(--grayish-blue);
@@ -559,11 +575,17 @@ main {
 .main-container-info .main-container-info__container-options .main-container-info__options .main-container-info__option-minus {
   margin-left: 1.5rem;
 }
+.main-container-info .main-container-info__container-options .main-container-info__options .main-container-info__option-minus:hover {
+  cursor: pointer;
+}
 .main-container-info .main-container-info__container-options .main-container-info__options .main-container-info__amount {
   font-weight: 700;
 }
 .main-container-info .main-container-info__container-options .main-container-info__options .main-container-info__option-plus {
   margin-right: 1.5rem;
+}
+.main-container-info .main-container-info__container-options .main-container-info__options .main-container-info__option-plus:hover {
+  cursor: pointer;
 }
 .main-container-info .main-container-info__container-options .main-container-info__addtocart {
   display: flex;
