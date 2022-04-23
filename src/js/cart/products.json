@@ -1,0 +1,9 @@
+[
+    {
+        "id":0,
+        "name": "Fall Limited Edition Sneakers",
+        "price": 125,
+        "discount": "50%",
+        "imgSrc": "src/assets/images/image-product-0-thumbnail.jpg"
+    }
+]
