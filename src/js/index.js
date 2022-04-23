@@ -10,13 +10,22 @@ const previousbtnlabel = document.querySelector('.big-container__img-previous');
 const nextbtn = document.querySelector('.big-container__option-next');
 const nextbtnlabel = document.querySelector('.big-container__img-next');
 
+// Add/remove amount
+const addbtn = document.getElementById('addbtn');
+const removebtn = document.getElementById('removebtn');
+const amountItems = document.getElementById('amount-items');
+
+// Images
 const productImage = document.querySelector('.big-container__img');
 
 /* --------------- Event listeners --------------- */
 
 toggleMenuElement.addEventListener('click',() => displayMenu());
 nextbtn.addEventListener('click',()=> updateGallery('next'));
-previousbtn.addEventListener('click',()=> updateGallery('previous'))
+previousbtn.addEventListener('click',()=> updateGallery('previous'));
+addbtn.addEventListener('click', () => updateAmountItems('add'))
+removebtn.addEventListener('click',()=>updateAmountItems('minus'));
+
 
 /* --------------- General functions --------------- */
 
@@ -42,6 +51,15 @@ const updateGallery = (btn) => {
         productImage.src = data[imageIndex-1];
         imageIndex-1 === 0 ? previousbtnlabel.style.opacity = 0.2 : '';
     } 
+}
+
+// Updates the amount of items to add to the cart
+const updateAmountItems = (option) => {
+    if (option === 'add'){
+        amountItems.textContent++;
+    } else if (option === 'minus' && amountItems.textContent>0){
+        amountItems.textContent--;
+    }
 }
 
 
