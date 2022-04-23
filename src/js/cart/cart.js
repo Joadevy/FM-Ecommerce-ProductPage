@@ -5,7 +5,7 @@ import data from './products.json' assert {type: 'json'};
 const addCartBtn = document.getElementById('addToCart');
 const cartBtn = document.getElementById('cart-btn');
 const amountItems = document.getElementById('amount-items');
-const header = document.querySelector('.main');
+const main = document.querySelector('.main');
 
 /* --------------- Event listeners --------------- */
 
@@ -62,7 +62,7 @@ const cleanCart = (id) => {
 
 const renderCart = () => {
     let cart = createCart();
-    header.appendChild(cart);
+    main.appendChild(cart);
 }
 
 function createCart(){
@@ -85,7 +85,7 @@ function createCart(){
     cart.appendChild(imgproduct);
 
     // Appending to their containers
-    header.append(title,closebtn);
+    main.append(title,closebtn);
 
     return cart;
 }
