@@ -80,6 +80,7 @@ function createCart(cart){
             // Adding the information
             productClone.querySelector('.cart__img-product').src = item.imgSrc;
             productClone.querySelector('.cart__product-description').textContent = item.name;
+            productClone.querySelector('.cart__delete-product').onclick = cleanCart;
             // Appending each product into the container
             containerProducts.appendChild(productClone);
         })
@@ -95,9 +96,11 @@ const renderCart = (cart) => {
     }
 }
 
-const cleanCart = (cart,id) => {
+const cleanCart = (test/*cart,id*/) => {
+    // I need to look for a reference of the element to remove of the cart before aplly the splice.
+    console.log(test.target.previousElementSibling);
     // Removing the product for the array, it removes all the units of this type of.
-    cart.splice(id,1);
+    /* cart.splice(id,1); */
 }
 
 
