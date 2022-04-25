@@ -66,28 +66,32 @@ const renderCart = () => {
 }
 
 function createCart(){
-    // Creating elements
-    let cart = document.createElement('div');
-    let header = document.createElement('div');
-    let title = document.createElement('p');
-    let closebtn = document.createElement('img');
-    let product = document.createElement('div');
-    let imgproduct = document.createElement('img');
-    let checkoutbtn = document.createElement('button');
+    // Creating the container element
+    const containerCart = document.createElement('div');
+    containerCart.classList.add('cart')
 
-    // Adding the information
-    title.textContent = 'Cart';
-    closebtn.src = 'src/assets/icon/icon-close.svg';
-    imgproduct.src = "src/assets/images/image-product-0-thumbnail.jpg";
+    // Creating the templates for the cart & product
+    const TemplateCart = document.getElementById('cart-template');
+    const TemplateProduct = document.getElementById('product-template');
 
-    // Adding classes
-    cart.classList.add('cart-active');
-    cart.appendChild(imgproduct);
+    // Creating a clone of the cart template.
+    const cartClone = TemplateCart.content.cloneNode(true); 
 
-    // Appending to their containers
-    main.append(title,closebtn);
+    // Appending the cartClone to the HTML document.
+    containerCart.appendChild(cartClone);
+    const containerProducts = containerCart.querySelector('.cart__products');
 
-    return cart;
+    cart.forEach((item) => {
+        // Creating a product by their template
+        const productClone = TemplateProduct.content.cloneNode(true);
+        // Adding the information
+        productClone.querySelector('.cart__img-product').src = item.imgSrc;
+        productClone.querySelector('.cart__product-description').textContent = item.name;
+        // Appending each product into the container
+        containerProducts.appendChild(productClone);
+    })
+
+    return containerCart;
 }
 
 
