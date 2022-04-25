@@ -1,5 +1,8 @@
 import data from './products.json' assert {type: 'json'};
 
+/* --------------- Global variables --------------- */
+let cart = [];
+
 /* --------------- Getting page elements --------------- */
 
 const addCartBtn = document.getElementById('addToCart');
@@ -9,11 +12,8 @@ const main = document.querySelector('.main');
 
 /* --------------- Event listeners --------------- */
 
-addCartBtn.addEventListener('click',()=>{addToCart(parseInt(amountItems.textContent),0)})
-cartBtn.addEventListener('click',()=>renderCart())
-
-/* --------------- Global variables --------------- */
-let cart = [];
+addCartBtn.addEventListener('click',()=>{addToCart(parseInt(amountItems.textContent),0)});
+cartBtn.addEventListener('click',()=>renderCart(cart));
 
 /* --------------- General functions --------------- */
 
@@ -32,12 +32,12 @@ function addToCart(amount,id){
                     "numberOfUnits":amount
                 });
         }
-        renderAmountCartItems();
+        renderAmountCartItems(cart);
     }
 }
 
 
-function renderAmountCartItems(){
+function renderAmountCartItems(cart){
     // If not exists the bubble container, then creates it
     if(cartBtn.parentElement.lastElementChild.classList !== 'user-menu__cart-bubble'){
         const bubble = document.createElement('div');
@@ -49,49 +49,55 @@ function renderAmountCartItems(){
     cart.forEach(product => {
         amountOfCartUnits+=product.numberOfUnits
     })
-    console.log(amountOfCartUnits);
     // Rendering the cart amount of units into the bubble.
     cartBtn.parentElement.lastElementChild.textContent = amountOfCartUnits;
-    console.log(cart)
 }
 
-const cleanCart = (id) => {
+function createCart(cart){
+    let mainNodes = main.children;
+    let cartExist = mainNodes.namedItem("cart");
+    // Checking if the cart doesn't exist in the HTML.
+    if (cartExist === null){
+        // Creating the container element
+        const containerCart = document.createElement('div');
+        containerCart.classList.add('cart');
+        containerCart.setAttribute("id","cart");
+
+        // Creating the templates for the cart & product
+        const TemplateCart = document.getElementById('cart-template');
+        const TemplateProduct = document.getElementById('product-template');
+
+        // Creating a clone of the cart template.
+        const cartClone = TemplateCart.content.cloneNode(true); 
+
+        // Appending the cartClone to the HTML document.
+        containerCart.appendChild(cartClone);
+        const containerProducts = containerCart.querySelector('.cart__products');
+
+        cart.forEach((item) => {
+            // Creating a product by their template
+            const productClone = TemplateProduct.content.cloneNode(true);
+            // Adding the information
+            productClone.querySelector('.cart__img-product').src = item.imgSrc;
+            productClone.querySelector('.cart__product-description').textContent = item.name;
+            // Appending each product into the container
+            containerProducts.appendChild(productClone);
+        })
+        return containerCart;
+    }
+} 
+
+const renderCart = (cart) => {
+    let cartRender = createCart(cart);
+    // If there are something in cartRender (it means that the cart isn't already in the HTMl)
+    if (cartRender){
+        main.appendChild(cartRender);
+    }
+}
+
+const cleanCart = (cart,id) => {
     // Removing the product for the array, it removes all the units of this type of.
     cart.splice(id,1);
-}
-
-const renderCart = () => {
-    let cart = createCart();
-    main.appendChild(cart);
-}
-
-function createCart(){
-    // Creating the container element
-    const containerCart = document.createElement('div');
-    containerCart.classList.add('cart')
-
-    // Creating the templates for the cart & product
-    const TemplateCart = document.getElementById('cart-template');
-    const TemplateProduct = document.getElementById('product-template');
-
-    // Creating a clone of the cart template.
-    const cartClone = TemplateCart.content.cloneNode(true); 
-
-    // Appending the cartClone to the HTML document.
-    containerCart.appendChild(cartClone);
-    const containerProducts = containerCart.querySelector('.cart__products');
-
-    cart.forEach((item) => {
-        // Creating a product by their template
-        const productClone = TemplateProduct.content.cloneNode(true);
-        // Adding the information
-        productClone.querySelector('.cart__img-product').src = item.imgSrc;
-        productClone.querySelector('.cart__product-description').textContent = item.name;
-        // Appending each product into the container
-        containerProducts.appendChild(productClone);
-    })
-
-    return containerCart;
 }
 
 
