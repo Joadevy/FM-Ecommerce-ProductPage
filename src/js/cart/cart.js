@@ -72,19 +72,33 @@ function createCart(cart){
 
         // Appending the cartClone to the HTML document.
         containerCart.appendChild(cartClone);
+
+        // Selecting elements from the containerCart
         const containerProducts = containerCart.querySelector('.cart__products');
 
-        cart.forEach((item) => {
-            // Creating a product by their template
-            const productClone = TemplateProduct.content.cloneNode(true);
-            // Adding the information
-            productClone.querySelector('.cart__img-product').src = item.imgSrc;
-            productClone.querySelector('.cart__product-description').textContent = item.name;
-            productClone.querySelector('.cart__delete-product').onclick = cleanCart;
-            // Appending each product into the container
-            containerProducts.appendChild(productClone);
-        })
+        // If there are at least one item in the cart
+        if (cart.some(item => item)){
+            // Adding the checkout to the button of the cart.
+            containerCart.querySelector(".cart__checkout").textContent = "Checkout";
+            containerCart.querySelector(".cart__checkout").classList.remove("empty");
+            cart.forEach((item) => {
+                // Creating a product by their template
+                const productClone = TemplateProduct.content.cloneNode(true);
+                // Adding the information
+                productClone.querySelector('.cart__img-product').src = item.imgSrc;
+                productClone.querySelector('.cart__product-description').textContent = item.name;
+                productClone.querySelector('.cart__delete-product').onclick = cleanCart;
+                // Appending each product into the container
+                containerProducts.appendChild(productClone);
+            })
+        } else {
+            containerCart.querySelector(".cart__checkout").textContent = "Your cart is empty.";
+            containerCart.querySelector(".cart__checkout").classList.add("empty");
+        }
         return containerCart;
+    } else {
+        // if the cart is already displayed on the screen.
+        cartExist.remove();
     }
 } 
 
