@@ -39,18 +39,23 @@ function addToCart(amount,id){
 
 function renderAmountCartItems(cart){
     // If not exists the bubble container, then creates it
-    if(cartBtn.parentElement.lastElementChild.classList !== 'user-menu__cart-bubble'){
+    if(!cartBtn.parentElement.lastElementChild.classList.contains('user-menu__cart-bubble')){
         const bubble = document.createElement('div');
         bubble.classList.add('user-menu__cart-bubble');
         cartBtn.parentElement.appendChild(bubble);
+
+        let amountOfCartUnits = 0;
+        // Acumulating all of the units of the cart products.
+        cart.forEach(product => {
+            amountOfCartUnits+=product.numberOfUnits
+        })
+        // Rendering the cart amount of units into the bubble.
+        cartBtn.parentElement.lastElementChild.textContent = amountOfCartUnits;
+    } 
+    // If the cart doesn't have products && the bubble notification is on the screen
+    else if (cartBtn.parentElement.lastElementChild.classList.contains('user-menu__cart-bubble') && cart.length == 0){
+        document.querySelector('.user-menu__cart-bubble').remove();
     }
-    let amountOfCartUnits = 0;
-    // Acumulating all of the units of the cart products.
-    cart.forEach(product => {
-        amountOfCartUnits+=product.numberOfUnits
-    })
-    // Rendering the cart amount of units into the bubble.
-    cartBtn.parentElement.lastElementChild.textContent = amountOfCartUnits;
 }
 
 function createCart(cart){
@@ -87,7 +92,12 @@ function createCart(cart){
                 // Adding the information
                 productClone.querySelector('.cart__img-product').src = item.imgSrc;
                 productClone.querySelector('.cart__product-description').textContent = item.name;
-                productClone.querySelector('.cart__delete-product').onclick = cleanCart;
+                productClone.querySelector('.cart__delete-product').onclick = function(){
+                    // This should cause bugs (but for this solution works)
+                    cart.splice(item.id,1);
+                    uploadCartRender(cart);
+                    renderAmountCartItems(cart);
+                };
                 // Appending each product into the container
                 containerProducts.appendChild(productClone);
             })
@@ -104,17 +114,24 @@ function createCart(cart){
 
 const renderCart = (cart) => {
     let cartRender = createCart(cart);
-    // If there are something in cartRender (it means that the cart isn't already in the HTMl)
+    // If there is something in cartRender (it means that the cart isn't already in the HTMl)
     if (cartRender){
         main.appendChild(cartRender);
     }
 }
 
-const cleanCart = (test/*cart,id*/) => {
-    // I need to look for a reference of the element to remove of the cart before aplly the splice.
-    console.log(test.target.previousElementSibling);
-    // Removing the product for the array, it removes all the units of this type of.
-    /* cart.splice(id,1); */
+function uploadCartRender(cart){
+    // Checking if there is something in the cart.
+    if (cart.some(item=>item)){
+        cart.forEach(element => {
+            console.log(element);
+            // Actually this is not required for the solution because it only has one product.
+        })
+    } else {
+        document.querySelector('.cart__products').remove();
+        document.querySelector(".cart__checkout").textContent = "Your cart is empty.";
+        document.querySelector(".cart__checkout").classList.add("empty");
+    }
 }
 
 
