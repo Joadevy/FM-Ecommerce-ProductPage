@@ -108,7 +108,8 @@ function createCart(cart){
                 const productClone = TemplateProduct.content.cloneNode(true);
                 // Adding the information
                 productClone.querySelector('.cart__img-product').src = item.imgSrc;
-                productClone.querySelector('.cart__product-description').textContent = item.name;
+                let totalPrice = item.price * item.numberOfUnits;
+                productClone.querySelector('.cart__product-description').innerHTML = item.name + ' $' + item.price + ' x ' + item.numberOfUnits + ' ' + `<span class="cart__product-description--bolder">$${totalPrice}</span>`
                 productClone.querySelector('.cart__delete-product').onclick = function(){
                     // This should cause bugs (but for this solution works)
                     cart.splice(item.id,1);
@@ -151,8 +152,6 @@ function uploadCartRender(cart){
             if(nodeProducts){
                 document.querySelector('.cart__img-product').src = item.imgSrc;
                 document.querySelector('.cart__product-description').textContent = item.name;
-                document.querySelector(".cart__checkout").textContent = "Checkout";
-                document.querySelector(".cart__checkout").classList.remove("empty");
             }  else {
                 // Creating a product by their template
                 const productClone = TemplateProduct.content.cloneNode(true);
@@ -165,7 +164,9 @@ function uploadCartRender(cart){
                     uploadCartRender(cart);
                     renderAmountCartItems(cart);
                 }; 
-                document.querySelector(".cart__checkout").textContent = "Checkout";  /* VER ESTO! pORQUE NO ESTA ACTUALIZIANDO*/
+                // Updating the button to checkout
+                document.querySelector(".cart__checkout").textContent = "Checkout"; 
+                document.querySelector(".cart__checkout").classList.remove("empty");
                 containerProducts.appendChild(productClone);
             }
         })
