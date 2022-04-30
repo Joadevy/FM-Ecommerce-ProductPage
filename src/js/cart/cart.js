@@ -34,6 +34,12 @@ function addToCart(amount,id){
         }
         renderAmountCartItems(cart);
     }
+    let mainNodes = main.children;
+    let cartExist = mainNodes.namedItem("cart");
+    if(cartExist){
+        console.log('test');
+        uploadCartRender(cart);
+    }  
 }
 
 
@@ -52,6 +58,17 @@ function renderAmountCartItems(cart){
         // Rendering the cart amount of units into the bubble.
         cartBtn.parentElement.lastElementChild.textContent = amountOfCartUnits;
     } 
+    
+    // Updating the bubble number if there are already items in the cart.
+    else if (cartBtn.parentElement.lastElementChild.classList.contains('user-menu__cart-bubble') && cart.length>0){
+        let amountOfCartUnits = 0;
+        // Acumulating all of the units of the cart products.
+        cart.forEach(product => {
+            amountOfCartUnits+=product.numberOfUnits
+        });
+        document.querySelector('.user-menu__cart-bubble').textContent = amountOfCartUnits;
+    }
+
     // If the cart doesn't have products && the bubble notification is on the screen
     else if (cartBtn.parentElement.lastElementChild.classList.contains('user-menu__cart-bubble') && cart.length == 0){
         document.querySelector('.user-menu__cart-bubble').remove();
