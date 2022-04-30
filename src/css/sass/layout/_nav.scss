@@ -93,12 +93,19 @@
                 background-color: var(--primary-orange);
                 border-radius: 50%;
             }
+
+            &:hover{
+                cursor: pointer;
+            }
         }
 
         .user-menu__avatar{
             width: 20%;
             .user-menu__avatar-img{
                 max-width: 100%;
+            }
+            &:hover{
+                cursor: pointer;
             }
         }
     }
