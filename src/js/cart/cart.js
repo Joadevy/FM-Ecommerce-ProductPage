@@ -34,10 +34,10 @@ function addToCart(amount,id){
         }
         renderAmountCartItems(cart);
     }
+    // If the cart is displayed on the screen.
     let mainNodes = main.children;
     let cartExist = mainNodes.namedItem("cart");
     if(cartExist){
-        console.log('test');
         uploadCartRender(cart);
     }  
 }
@@ -58,7 +58,7 @@ function renderAmountCartItems(cart){
         // Rendering the cart amount of units into the bubble.
         cartBtn.parentElement.lastElementChild.textContent = amountOfCartUnits;
     } 
-    
+
     // Updating the bubble number if there are already items in the cart.
     else if (cartBtn.parentElement.lastElementChild.classList.contains('user-menu__cart-bubble') && cart.length>0){
         let amountOfCartUnits = 0;
@@ -140,11 +140,38 @@ const renderCart = (cart) => {
 function uploadCartRender(cart){
     // Checking if there is something in the cart.
     if (cart.some(item=>item)){
-        cart.forEach(element => {
-            console.log(element);
-            // Actually this is not required for the solution because it only has one product.
+    const TemplateProduct = document.getElementById('product-template');
+    const containerProducts = document.createElement('div');
+    containerProducts.classList.add('cart__products');
+    containerProducts.setAttribute("id","cart__products");
+        cart.forEach(item => {
+            let mainNodes = document.querySelector('.cart').children;
+            let nodeProducts = mainNodes.namedItem("cart__products");
+            // If the cart is already rendered, only updates the data.
+            if(nodeProducts){
+                document.querySelector('.cart__img-product').src = item.imgSrc;
+                document.querySelector('.cart__product-description').textContent = item.name;
+                document.querySelector(".cart__checkout").textContent = "Checkout";
+                document.querySelector(".cart__checkout").classList.remove("empty");
+            }  else {
+                // Creating a product by their template
+                const productClone = TemplateProduct.content.cloneNode(true);
+                // Adding the information
+                productClone.querySelector('.cart__img-product').src = item.imgSrc;
+                productClone.querySelector('.cart__product-description').textContent = item.name;
+                productClone.querySelector('.cart__delete-product').onclick = function(){
+                    // This should cause bugs (but for this solution works)
+                    cart.splice(item.id,1);
+                    uploadCartRender(cart);
+                    renderAmountCartItems(cart);
+                }; 
+                document.querySelector(".cart__checkout").textContent = "Checkout";  /* VER ESTO! pORQUE NO ESTA ACTUALIZIANDO*/
+                containerProducts.appendChild(productClone);
+            }
         })
-    } else {
+    // Appending the products into the HTML.
+    document.getElementById('cart').insertBefore(containerProducts,document.querySelector('.cart__checkout'));
+    } else { // If there isn't something in the cart
         document.querySelector('.cart__products').remove();
         document.querySelector(".cart__checkout").textContent = "Your cart is empty.";
         document.querySelector(".cart__checkout").classList.add("empty");
