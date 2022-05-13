@@ -67,6 +67,7 @@ function renderAmountCartItems(cart){
     }
 }
 
+// Creates the structure of the HTML cart and loads the data in.
 function createCart(cart){
     let mainNodes = main.children;
     let cartExist = mainNodes.namedItem("cart");
@@ -109,9 +110,9 @@ const renderCart = (cart) => {
 function uploadCartRender(cart){
     const TemplateProduct = document.getElementById('product-template');
     const containerCart = document.querySelector('.cart');
-    const containerProducts = document.createElement('div');
-    containerProducts.classList.add('cart__products');
-    containerProducts.setAttribute("id","cart__products");
+    const containerProducts = document.querySelector('.cart__products');
+    // Cleaning the actual elements loaded in the HTML.
+    containerProducts.textContent = '';
     loadCartData(cart,containerCart,containerProducts,TemplateProduct);
 }
 
