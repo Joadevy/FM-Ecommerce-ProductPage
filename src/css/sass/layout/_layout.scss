@@ -12,3 +12,18 @@ body {
 main {
     margin-top: 75px;
 }
+
+@media screen and (min-width: 1024px) {
+    body{
+        padding: 0rem 5rem 2rem 5rem;
+    }
+
+    main{
+        margin-top: 0px;
+    }
+
+   .header{
+       margin-top: 0;
+       position: relative;
+   }
+}
