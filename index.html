@@ -11,35 +11,37 @@
 </head>
 <body>
   <header class="header">
-    <div class="header-container-logo">
-      <div class="container-logo">
-        <img class="container-logo__img" src="src/assets/images/logo.svg" alt="Sneakers">
+    <div class="header-logo-navbar">
+      <div class="header-container-logo">
+        <div class="container-logo">
+          <img class="container-logo__img" src="src/assets/images/logo.svg" alt="Sneakers">
+        </div>
+        
+        <div id="toggle-menu" class="toggle-menu">
+          <img class="toggle-img" src="src/assets/icon/icon-menu.svg" alt="Button to display the navigation bar">
+        </div>
       </div>
-      
-      <div id="toggle-menu" class="toggle-menu">
-        <img class="toggle-img" src="src/assets/icon/icon-menu.svg" alt="Button to display the navigation bar">
-      </div>
+  
+      <nav class="header-container-navbar">
+        <ul id="navbar-menu" class="navbar-menu">
+          <li class="navbar-menu__item">
+            <a class="navbar-menu__link" id="collections" href="#">Collections</a>
+          </li>
+          <li class="navbar-menu__item">
+            <a class="navbar-menu__link" id="men" href="#">Men</a>
+          </li>
+          <li class="navbar-menu__item">
+            <a class="navbar-menu__link" id="women" href="#">Women</a>
+          </li>
+          <li class="navbar-menu__item">
+            <a class="navbar-menu__link" id="about" href="#">About</a>
+          </li>
+          <li class="navbar-menu__item">
+            <a class="navbar-menu__link" id="contact" href="#">Contact</a>
+          </li>
+        </ul>
+      </nav>
     </div>
-
-    <nav class="header-container-navbar">
-      <ul id="navbar-menu" class="navbar-menu">
-        <li class="navbar-menu__item">
-          <a class="navbar-menu__link" href="#">Collections</a>
-        </li>
-        <li class="navbar-menu__item">
-          <a class="navbar-menu__link" href="#">Men</a>
-        </li>
-        <li class="navbar-menu__item">
-          <a class="navbar-menu__link" href="#">Women</a>
-        </li>
-        <li class="navbar-menu__item">
-          <a class="navbar-menu__link" href="#">About</a>
-        </li>
-        <li class="navbar-menu__item">
-          <a class="navbar-menu__link" href="#">Contact</a>
-        </li>
-      </ul>
-    </nav>
 
     <div class="user-menu">
       <div class="user-menu__cart">
