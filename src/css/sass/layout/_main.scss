@@ -232,11 +232,12 @@ main {
     main {
         padding: 3rem 10rem 2rem 10rem;
         display: flex;
+        gap: 1rem;
         
         .main-container-images {
-            width: 100%;
+            width: 45%;
             .big-container {
-                width: 80%;
+                width: 100%;
                 .big-container__options {
                     display: none;
                 }
@@ -248,14 +249,21 @@ main {
             }
             .small-container{
                 margin-top: 1rem;
-                display: block;
-                border: 1px solid red;
+                display: flex;
+                // border: 1px solid red;
                 height: 75px;
-                width: 80%;
+                width: 100%;
+                gap: 10px;;
+
+                .small-container__container-image{
+                    border: 1px solid green;
+                    width: 25%;
+                }
             }
         }
     
         .main-container-info {
+            width: 50%;
             padding: 3rem 1rem 1rem 1rem;
     
             .info__container-text{
