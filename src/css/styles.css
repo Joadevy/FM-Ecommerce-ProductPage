@@ -700,9 +700,9 @@ main .cart .empty {
 
 @media screen and (min-width: 1024px) {
   main {
-    padding: 3rem 10rem 2rem 10rem;
+    padding: 3rem 10rem 1rem 10rem;
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
   }
   main .main-container-images {
     width: 45%;
@@ -723,11 +723,12 @@ main .cart .empty {
     display: flex;
     height: 75px;
     width: 100%;
-    gap: 10px;
+    gap: 20px;
   }
   main .main-container-images .small-container .small-container__container-image {
-    border: 1px solid green;
+    border: 1px solid var(--primary-orange);
     width: 25%;
+    border-radius: 5px;
   }
   main .main-container-info {
     width: 50%;

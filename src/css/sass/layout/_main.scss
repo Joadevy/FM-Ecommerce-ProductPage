@@ -230,9 +230,9 @@ main {
 
 @media screen and (min-width: 1024px) {
     main {
-        padding: 3rem 10rem 2rem 10rem;
+        padding: 3rem 10rem 1rem 10rem;
         display: flex;
-        gap: 1rem;
+        gap: 3rem;
         
         .main-container-images {
             width: 45%;
@@ -253,11 +253,12 @@ main {
                 // border: 1px solid red;
                 height: 75px;
                 width: 100%;
-                gap: 10px;;
+                gap: 20px;
 
                 .small-container__container-image{
-                    border: 1px solid green;
+                    border: 1px solid var(--primary-orange);
                     width: 25%;
+                    border-radius: 5px;
                 }
             }
         }
