@@ -17,6 +17,7 @@ const amountItems = document.getElementById('amount-items');
 
 // Images
 const productImage = document.querySelector('.big-container__img');
+const smallImages = document.querySelectorAll('.small-container__container-image');
 
 /* --------------- Event listeners --------------- */
 
@@ -25,6 +26,7 @@ nextbtn.addEventListener('click',()=> updateGallery('next'));
 previousbtn.addEventListener('click',()=> updateGallery('previous'));
 addbtn.addEventListener('click', () => updateAmountItems('add'))
 removebtn.addEventListener('click',()=>updateAmountItems('minus'));
+smallImages.forEach(image => image.addEventListener('click', (e) => updateSmallImages(e.target.id)));
 
 
 /* --------------- General functions --------------- */
@@ -51,6 +53,26 @@ const updateGallery = (btn) => {
         productImage.src = data[imageIndex-1];
         imageIndex-1 === 0 ? previousbtnlabel.style.opacity = 0.2 : '';
     } 
+}
+
+// Updates the small images when the user clicks on one of them.
+const updateSmallImages = (id) => {
+    let index = id.split('').pop();
+    productImage.src = data[index];
+    focusOnSmallImg(id)
+}
+
+const focusOnSmallImg = (id) => {
+    smallImages.forEach(image => {
+        if (image.firstElementChild.id === id){
+            image.firstElementChild.style.opacity = 0.25;
+            image.style.border = '2px solid var(--primary-orange)';
+        }
+        else {
+            image.firstElementChild.style.opacity = 1;
+            image.style.border = 'none'
+        }
+    });
 }
 
 // Updates the amount of items to add to the cart

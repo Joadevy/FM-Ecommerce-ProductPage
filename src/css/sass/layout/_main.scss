@@ -250,16 +250,18 @@ main {
             .small-container{
                 margin-top: 1rem;
                 display: flex;
-                // border: 1px solid red;
                 height: 75px;
                 width: 100%;
                 gap: 20px;
 
                 .small-container__container-image{
-                    border: 1px solid var(--primary-orange);
                     width: 25%;
                     border-radius: 5px;
                     overflow: hidden;
+
+                    &:first-child{
+                        border: 2px solid var(--primary-orange);
+                    }
 
                     .small-container-image__img{
                         width: 100%;
@@ -269,6 +271,10 @@ main {
                             cursor: pointer;
                             opacity: .5;
                         }
+                    }
+
+                    #simg-0{
+                        opacity: .25;
                     }
                 }
             }

@@ -726,10 +726,12 @@ main .cart .empty {
     gap: 20px;
   }
   main .main-container-images .small-container .small-container__container-image {
-    border: 1px solid var(--primary-orange);
     width: 25%;
     border-radius: 5px;
     overflow: hidden;
+  }
+  main .main-container-images .small-container .small-container__container-image:first-child {
+    border: 2px solid var(--primary-orange);
   }
   main .main-container-images .small-container .small-container__container-image .small-container-image__img {
     width: 100%;
@@ -738,6 +740,9 @@ main .cart .empty {
   main .main-container-images .small-container .small-container__container-image .small-container-image__img:hover {
     cursor: pointer;
     opacity: 0.5;
+  }
+  main .main-container-images .small-container .small-container__container-image #simg-0 {
+    opacity: 0.25;
   }
   main .main-container-info {
     width: 50%;
