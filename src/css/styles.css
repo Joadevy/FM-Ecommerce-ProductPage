@@ -729,6 +729,11 @@ main .cart .empty {
     border: 1px solid var(--primary-orange);
     width: 25%;
     border-radius: 5px;
+    overflow: hidden;
+  }
+  main .main-container-images .small-container .small-container__container-image .small-container-image__img {
+    width: 100%;
+    height: 100%;
   }
   main .main-container-info {
     width: 50%;
